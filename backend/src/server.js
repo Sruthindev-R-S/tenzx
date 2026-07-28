@@ -1,7 +1,9 @@
-const app = require("./app");
+const express = require('express');
+const app = express();
 
-const PORT = process.env.PORT || 3000;
+app.use(express.json());
+app.use('/', require('./routes/users'));
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
 });
